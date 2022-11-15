@@ -1,5 +1,4 @@
 from json import load
-import string
 from flask import Flask, render_template, redirect, url_for,request, send_file, session
 from flask.sessions import NullSession
 from flask_bootstrap import Bootstrap
@@ -9,6 +8,7 @@ from jinja2 import pass_eval_context
 from src.cap import extractImages
 import threading
 import random
+from src.client import start_socket
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 app.config['SECRET_KEY'] = 'ghghchgcghchhddgdgf'
@@ -83,7 +83,10 @@ def capture():
 
         if request.form.get('action2') == 'Start Capture':
             print("capture Started")
-            extractImages(session["name"],20)
+            file_name = extractImages(session["name"],20)
+            print(file_name)
+            out = start_socket(file_name)
+            print(out)
             return redirect(url_for("index"))
         if request.form.get('action3') == 'Back':
             return redirect(url_for("add_user"))
