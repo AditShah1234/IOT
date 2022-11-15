@@ -6,7 +6,7 @@ from flask_bootstrap import Bootstrap
 from flask.sessions import NullSession
 import time
 from jinja2 import pass_eval_context
-
+from src.cap import extractImages
 import threading
 import random
 app = Flask(__name__)
@@ -83,6 +83,7 @@ def capture():
 
         if request.form.get('action2') == 'Start Capture':
             print("capture Started")
+            extractImages(session["name"],20)
             return redirect(url_for("index"))
         if request.form.get('action3') == 'Back':
             return redirect(url_for("add_user"))
