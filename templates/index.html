@@ -37,7 +37,7 @@ App
 
       <div class="starter-template">
         <h1>Temperature</h1>
-        <p class="lead">Temperature <br> {{value}}</p>
+        <p class="lead">Temperature <br> {{value["tmp"]}}</p>
 
       </div>
 
@@ -55,6 +55,8 @@ App
         <input  class="btn btn-primary" type="submit" value="Submit" name="action1"/>
         <br>
         <input type="submit" value="New user" name="action2" />
+      
+        <input type="submit" value="Update" name="action3" />
         </br>
         </form>
         <!-- <button class="btn btn-primary" type="submit">Set Temperature</button> -->
