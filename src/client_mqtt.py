@@ -48,10 +48,10 @@ def message(client, feed_id, payload):
 client = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 if __name__=="__main__":
     # Setup the callback functions defined above.
-    client.on_connect    = connected
-    client.on_disconnect = disconnected
-    client.on_message    = message
-    client.on_subscribe  = subscribe
+    # client.on_connect    = connected
+    # client.on_disconnect = disconnected
+    # client.on_message    = message
+    # client.on_subscribe  = subscribe
 
     # Connect to the Adafruit IO server.
     client.connect()

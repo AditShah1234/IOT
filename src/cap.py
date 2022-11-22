@@ -6,7 +6,7 @@ import cv2
 import pickle
 print(cv2.__version__)
 
-def extractImages(name="",max_count=10):
+def extractImages(name="",max_count=10,save_file_path = "asset"):
     encode_list=[]
     count = 0
     vidcap = cv2.VideoCapture(0)
@@ -26,12 +26,13 @@ def extractImages(name="",max_count=10):
         # cv2.imwrite( "asset//"+name+"_frame%d.jpg" % count, image)     # save frame as JPEG file
         count = count + 1
         if cv2.waitKey(1) & 0xFF == ord('q') or count ==max_count:
-            f = open("asset//"+name, "wb")
+            print(save_file_path+"ihuihiuhu")
+            f = open(save_file_path+"//"+name, "wb")
             f.write(pickle.dumps(encode_list))
             f.close()
             break
         time.sleep(1)
-    return "asset//"+name
+    return save_file_path+"//"+name
 if __name__=="__main__":
  
   
