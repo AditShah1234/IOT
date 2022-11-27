@@ -47,6 +47,6 @@ then open 127.0.0.1:2000 which is a local host
 To run server use 
 ```bash
 python3 server.py
-'''
+```
 
 
